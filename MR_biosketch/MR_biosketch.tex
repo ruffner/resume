@@ -1,0 +1,142 @@
+\documentclass[12pt]{article}
+
+%% Define some new colors
+\usepackage{xcolor}
+\definecolor{mBlue}{RGB}{51, 77, 167}
+\newcommand{\blue}[1]{{\color{mBlue}#1}}
+
+%% Page and text formatting
+\usepackage[left=1.0in, right=1.0in, top=1.0in, bottom=1.0in]{geometry} % margins
+\usepackage{setspace}
+\singlespacing % No more than 6 lines of text per inch
+\usepackage{amsmath, amsfonts}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+
+%% Make the sections start with (a), (b), etc.
+\renewcommand\thesection{(\alph{section})}
+\renewcommand\thesubsection{(\alph{subsection})}
+
+%% Set up footer
+\usepackage{fancyhdr}
+\fancypagestyle{CVfooter}
+{
+ \lhead{}
+ \chead{}
+ \rhead{}
+ \lfoot{\small{Matthew P.\ Ruffner}}
+ \cfoot{\small{\today}}
+ \rfoot{\small{\thepage/1}}
+ \renewcommand{\headrulewidth}{0.0pt}
+ \renewcommand{\footrulewidth}{0.5pt}
+}
+
+%% Set up hyperlinks
+\usepackage[linktoc=page]{hyperref}
+\hypersetup{
+  colorlinks = true,
+  urlcolor = mBlue,
+  citecolor = mBlue,
+  linkcolor = mBlue,
+}
+
+%% Set up citations and bibliography
+\usepackage{bibunits}
+\usepackage[sort&compress,super]{natbib}
+\defaultbibliographystyle{ieeetr}
+\setcitestyle{comma}
+\setlength{\bibsep}{0pt}
+\renewcommand{\bibnumfmt}[1]{\ \ \ #1.}
+\renewcommand\refname{\vspace{-7mm}}
+
+%% This allows us to start a bibliography with arbitrary number
+\usepackage{etoolbox}
+\makeatletter
+\newcommand*{\newbibstartnumber}[1]{%
+  \apptocmd{\thebibliography}{%
+    \global\c@NAT@ctr #1\relax
+    \addtocounter{NAT@ctr}{-1}%
+  }{}{}%
+}
+\makeatother
+
+%% Reduce whitespace around lists (globally)
+%\usepackage{enumitem}
+%\setlist[itemize]{nosep,left=0pt}
+%\setlist[enumerate]{nosep}
+%\setlist[description]{nosep}
+
+%% Formatting for sections
+\usepackage[compact]{titlesec}
+\titleformat*{\section}{\normalsize\bfseries}
+\titlespacing*{\section}{0mm}{2mm}{2mm}[0mm] % left top bottom right
+\titleformat*{\subsection}{\normalsize\bfseries}
+\titlespacing*{\subsection}{0mm}{2mm}{1mm}[0mm]
+\titleformat*{\subsubsection}{\normalsize\bfseries\itshape}
+\titlespacing*{\subsubsection}{0mm}{1mm}{0mm}[0mm]
+
+\begin{document}
+\pagestyle{CVfooter}
+
+\noindent \textbf{\uppercase{Matthew P.\ Ruffner}}
+\vspace{2mm}
+
+
+%\noindent \textbf{Matthew P.\ Ruffner}
+\vspace{2mm}
+\begin{flushleft}
+\noindent\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l r}
+\hline 
+Advisor:  &  Dr. Daniel L. Lau \\
+Position: & PhD Student, Electrical and Computer Engineering \\
+Email:    & \href{mailto:matthew.ruffner@uky.edu}{matthew.ruffner@uky.edu} \\
+\hline
+\end{tabular*}
+\end{flushleft}
+
+\section{Education \& Training}
+
+\begin{tabular}{l l l l}
+University of Kentucky & Lexington, KY & Ph.D. in Electrical Engineering  & 2019 \textendash Current \\
+University of Kentucky & Lexington, KY & M.Sc. in Electrical Engineering  & 2017 \textendash 2019 \\
+University of Kentucky & Lexington, KY & B.Sc. in Electrical Engineering  & 2013 \textendash 2017 \\
+University of Kentucky & Lexington, KY & B.Sc. in Computer Engineering    & 2013 \textendash 2017 \\
+University of Kentucky & Lexington, KY & B.Sc. in Computer Science        & 2013 \textendash 2017 \\
+\end{tabular}
+
+\section{Personal Statement}
+ This is where I talk about what all I have done which is mostly go to school, start a business, file a patent and  make cool stuff.
+
+
+
+
+
+\section{Positions and Employment}
+
+
+\begin{tabular}{p{0.15\linewidth} p{0.85\linewidth}}
+  2017 - 2019 & {Graduate Research Assistant, University of Kentucky Electrical and Computer Engineering Department} \\
+  2019        & ROS Intern, Badger Technologies, Nicholasville, KY \\
+  2016 - 2017 & Undergraduate Research Assistant, University of Kentucky Electrical and Computer Engineering Department \\
+  2016 - 2017 & Hardware/Software Research Engineer, MosquitoMate, Inc. \\
+  2013 - 2015 & Undergraduate Research Assistant, University of Kentucky Computer Science Department \\
+\end{tabular}
+
+
+ 
+\section{Publications}
+
+\vspace{2mm}
+\newbibstartnumber{1}
+\begin{bibunit}[plain]
+	\nocite{krups}
+	\nocite{krepe1}
+	\nocite{10.1117/12.2508553}
+	\nocite{10.1117/12.2510990}
+	\nocite{Yu:20}
+\putbib[refs]
+\end{bibunit}
+	
+
+\end{document}
+
